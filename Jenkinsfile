@@ -6,13 +6,13 @@ pipeline {
     stages { 
         stage('SCM Checkout') {
             steps{
-            git 'https://github.com/hareeshpgit/nodejs-demo.git'
+            git 'https://github.com/AdiNarayana32/nodejs-demo.git'
             }
         }
 
         stage('Build docker image') {
             steps {  
-                sh 'docker build -t hareeshpdocker/nginx-docker-image:$BUILD_NUMBER .'
+                sh 'docker build -t adinarayana32/nginx-docker-image:$BUILD_NUMBER .'
             }
         }
         stage('login to dockerhub') {
