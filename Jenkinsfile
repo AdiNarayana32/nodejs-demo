@@ -1,7 +1,7 @@
 pipeline {
     agent any 
     environment {
-    DOCKERHUB_CREDENTIALS = credentials('docker-hub-adi')
+    DOCKERHUB_CREDENTIALS = credentials('docker-hub-adinarayana32')
     }
     stages { 
         stage('SCM Checkout') {
@@ -22,17 +22,17 @@ pipeline {
         }
         stage('push image') {
             steps{
-                sh 'docker push hareeshpdocker/nginx-docker-image:$BUILD_NUMBER'
+                sh 'docker push adinarayana32/nginx-docker-image:$BUILD_NUMBER'
             }
         }
         stage('pull image') {
             steps{
-                sh 'docker pull hareeshpdocker/nginx-docker-image:$BUILD_NUMBER'
+                sh 'docker pull adinarayana32/nginx-docker-image:$BUILD_NUMBER'
             }
         }
         stage('run image') {
             steps{
-                sh 'docker run -d -p 80:80 hareeshpdocker/nginx-docker-image:$BUILD_NUMBER'
+                sh 'docker run -d -p 80:80 adinarayana32/nginx-docker-image:$BUILD_NUMBER'
             }
         }   
 }
